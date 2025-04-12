@@ -1,10 +1,11 @@
-import BreadcrumbHeader from "@/components/breadcrumb-header";
-import DesktopSidebar from "@/components/Sidebar";
-import { ThemeModeToogle } from "@/components/theme-mode-toggle";
-import { SignedIn, UserButton } from "@clerk/nextjs";
-import React from "react";
+import { SignedIn, UserButton } from '@clerk/nextjs';
 
-function Layout({ children }: { children: React.ReactNode }) {
+import { Separator } from '@/components/ui/separator';
+import BreadcrumbHeader from '@/components/breadcrumb-header';
+import DesktopSidebar from '@/components/Sidebar';
+import ThemeModeToggle from '@/components/theme-mode-toggle';
+
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex h-screen">
       <DesktopSidebar />
@@ -12,23 +13,17 @@ function Layout({ children }: { children: React.ReactNode }) {
         <header className="flex items-center justify-between px-6 py-4 h-[50px] container">
           <BreadcrumbHeader />
           <div className="gap-1 flex items-center">
-            <ThemeModeToogle />
+            <ThemeModeToggle />
             <SignedIn>
               <UserButton />
             </SignedIn>
           </div>
         </header>
-
-        <hr />
-
+        <Separator />
         <div className="overflow-auto">
-          <div className="flex-1 container py-4 text-accent-foreground">
-            {children}
-          </div>
+          <div className="flex-1 container px-6 py-2 text-accent-foreground">{children}</div>
         </div>
       </div>
     </div>
-  )
+  );
 }
-
-export default Layout;
