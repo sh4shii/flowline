@@ -1,5 +1,6 @@
 import BreadcrumbHeader from "@/components/breadcrumb-header";
 import DesktopSidebar from "@/components/Sidebar";
+import { ThemeModeToogle } from "@/components/theme-mode-toggle";
 import React from "react";
 
 function Layout({ children }: { children: React.ReactNode }) {
@@ -9,6 +10,9 @@ function Layout({ children }: { children: React.ReactNode }) {
       <div className="flex flex-col flex-1 min-h-screen">
         <header className="flex items-center justify-between px-6 py-4 h-[50px] container">
           <BreadcrumbHeader />
+          <div className="gap-1 flex items-center">
+            <ThemeModeToogle />
+          </div>
         </header>
 
         <hr />
