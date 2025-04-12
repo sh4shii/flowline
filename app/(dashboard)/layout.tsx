@@ -1,11 +1,14 @@
+import BreadcrumbHeader from "@/components/breadcrumb-header";
+import DesktopSidebar from "@/components/Sidebar";
 import React from "react";
 
-function layout({ children }: { children: React.ReactNode }) {
+function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex h-screen">
+      <DesktopSidebar />
       <div className="flex flex-col flex-1 min-h-screen">
         <header className="flex items-center justify-between px-6 py-4 h-[50px] container">
-          FlowLine
+          <BreadcrumbHeader />
         </header>
 
         <hr />
@@ -19,3 +22,5 @@ function layout({ children }: { children: React.ReactNode }) {
     </div>
   )
 }
+
+export default Layout;
